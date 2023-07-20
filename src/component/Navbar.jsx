@@ -17,7 +17,11 @@ const Navbar = () => {
             src={logo}
             alt="spendwise"
           />
-          <Text fontSize={"md"} color={"white"}>
+          <Text
+            fontSize={"md"}
+            color={"white"}
+            display={{ base: "none", md: "block", lg: "block" }}
+          >
             spendwise
           </Text>
         </HStack>
