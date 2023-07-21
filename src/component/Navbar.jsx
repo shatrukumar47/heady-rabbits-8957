@@ -1,10 +1,18 @@
 import { Box, Button, HStack, Image, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./logo.png";
 
 const Navbar = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 0);
+    });
+  }, []);
+
   return (
-    <Box bg={"black"}>
+    <Box bg={"black"} style={{position: "sticky", top:0, zIndex: 999}} className={scroll ? "active-scroll" : ""}>
       <HStack
         justify={"space-between"}
         paddingLeft={{ base: "10px", md: "10px", lg: "60px" }}
