@@ -2,11 +2,49 @@
   
   {
   "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
+  "name": "Shatrughan",
+  "username": "@shatrughan",
+  "age": 23,
+  "email":"shatrughan@gmail.com"
+  ,"password":"user001",
+  "financialinfo":{
+   "budget":[
+    {
+      "id":1,
+      "name":""
+      ,"date":"",
+      "amount":100000,
+       "remark":"",
+       "category":""
+    }
+   ],
+   "transaction":[
+    {
+      "id":1,
+      "name":""
+      ,"date":"",
+      "amount":0
+    }
+   ]
+
+   ,
+   "withdraw":[
+    {
+      "id":1,
+      "name":""
+      ,"date":"",
+      "amount":0
+    }
+   ]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Swati",
+  "username": "@swati07",
   "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
+  "email":"swati121@gmail.com"
+  ,"password":"user002",
   "financialinfo":{
    "budget":100000,
    "transaction":[],
@@ -15,11 +53,25 @@
   },
   {
   "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
+  "name": "Anurag",
+  "username": "@anuXrag",
   "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
+  "email":"anurag134@gmail.com"
+  ,"password":"user003",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+
+  {
+  "id": 1,
+  "name": "Sonika",
+  "username": "@sonika12",
+  "age": 32,
+  "email":"sonika00@gmail.com"
+  ,"password":"user004",
   "financialinfo":{
    "budget":100000,
    "transaction":[],
@@ -28,50 +80,11 @@
   },
   {
   "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
+  "name": "Akash",
+  "username": "@akash0x",
   "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
-  "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
-  "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Steve Smith",
-  "username": "@smith012",
-  "age": 32,
-  "email":"user12@gmail.com"
-  ,"password":"user123",
+  "email":"akash11@gmail.com"
+  ,"password":"user005",
   "financialinfo":{
    "budget":100000,
    "transaction":[],
