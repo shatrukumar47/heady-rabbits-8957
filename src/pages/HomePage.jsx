@@ -74,9 +74,9 @@ const HomePage = () => {
                 variant={"outline"}
                 colorScheme={"blue"}
                 padding={"23px"}
+                transition={"border-radius 0.3s ease-in-out"}
                 _hover={{
                   borderRadius: "20px",
-                  transition: "border-radius 0.3s ease-in-out 0s",
                 }}
                 rightIcon={<ArrowForwardIcon />}
               >
@@ -288,57 +288,66 @@ const HomePage = () => {
           </Stack>
         </div>
 
-        <Grid
-          templateColumns={{
-            base: "repeat(3, 1fr)",
-            md: "repeat(2, 1fr)",
-            lg: "repeat(1, 1fr)",
-          }}
-          gap={6}
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
         >
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>Sarah Johnson</Heading>
-          </VStack>
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>Michael Lee</Heading>
-          </VStack>
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>Emily Hernandez</Heading>
-          </VStack>
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>David Patel</Heading>
-          </VStack>
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>Jennifer Adams</Heading>
-          </VStack>
-          <VStack>
-            <Text>
-              "Spendwise keeps me on track! Alerts & tips make money management
-              a breeze."
-            </Text>
-            <Heading size={"md"}>Laura Kim</Heading>
-          </VStack>
-        </Grid>
+          <Grid
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              md: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)",
+            }}
+            gap={6}
+            className="container-feedback"
+          >
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- Sarah Johnson</Heading>
+            </VStack>
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- Michael Lee</Heading>
+            </VStack>
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- Emily Hernandez</Heading>
+            </VStack>
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- David Patel</Heading>
+            </VStack>
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- Jennifer Adams</Heading>
+            </VStack>
+            <VStack className="feedback">
+              <Text>
+                "Spendwise keeps me on track! Alerts & tips make money
+                management a breeze."
+              </Text>
+              <Heading size={"md"}>- Laura Kim</Heading>
+            </VStack>
+          </Grid>
+        </div>
       </Container>
     </Box>
   );
