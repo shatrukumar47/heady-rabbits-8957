@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 import { Menus } from "../utils/MenuItems";
 import { signOut } from "../utils/icons";
 import { Button } from "@chakra-ui/react";
-const Sidebar=({active,setActive})=>{
+const Sidebar=({active,setActive,onClick})=>{
     
+const handleClick=(id)=>{
+setActive(id)
+onClick();
+}
+
     return (
     <NavStyled>
         <div className="user-con">
@@ -19,7 +24,8 @@ const Sidebar=({active,setActive})=>{
                 {Menus.map((item) => {
                     return <li
                         key={item.id}
-                        onClick={() => setActive(item.id)}
+                        // onClick={() => setActive(item.id)}
+                        onClick={()=>handleClick(item.id)}
                         className={active === item.id ? 'active': ''}
                     >
                         {item.icon}

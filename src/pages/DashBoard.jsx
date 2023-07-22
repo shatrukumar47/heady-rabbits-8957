@@ -22,6 +22,7 @@ const DashBoard = () => {
   const btnRef = React.useRef()
 
   const displayData = () => {
+    
     switch (active) {
       case 1:
         return <Details />;
@@ -38,6 +39,7 @@ const DashBoard = () => {
     }
   };
 
+  console.log(onClose)
 
   return (
     <DIV>
@@ -56,7 +58,7 @@ const DashBoard = () => {
             <DrawerHeader>Menus</DrawerHeader>
   
             <DrawerBody>
-            <Sidebar active={active} setActive={setActive} />
+            <Sidebar onClick={onClose} active={active} setActive={setActive} />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
