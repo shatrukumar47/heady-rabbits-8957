@@ -4,7 +4,13 @@ import { Link } from "react-router-dom";
 import { Menus } from "../utils/MenuItems";
 import { signOut } from "../utils/icons";
 import { Button } from "@chakra-ui/react";
-const Sidebar=({active,setActive})=>{
+const Sidebar=({active,setActive,onclick})=>{
+    
+// const handleClick=(id)=>{
+// setActive(id)
+// // onclick()
+// }
+
     return (
     <NavStyled>
         <div className="user-con">
@@ -19,6 +25,7 @@ const Sidebar=({active,setActive})=>{
                     return <li
                         key={item.id}
                         onClick={() => setActive(item.id)}
+                        // onClick={handleClick(item.id)}
                         className={active === item.id ? 'active': ''}
                     >
                         {item.icon}
@@ -40,9 +47,9 @@ const Sidebar=({active,setActive})=>{
 
 const NavStyled = styled.nav`
     padding: 2rem 1.5rem;
-    width: 374px;
+    width: 100%;
     height: 100%;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     /* background: rgba(252, 246, 249, 0.78); */
     border: 3px solid #FFFFFF;
     backdrop-filter: blur(4.5px);
@@ -113,6 +120,9 @@ const NavStyled = styled.nav`
             background: #222260;
             border-radius: 0 10px 10px 0;
         }
+    }
+    @media screen and (max-width: 900px){
+        width: 70%;
     }
 `;
 export default Sidebar;
