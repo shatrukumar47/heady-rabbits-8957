@@ -8,7 +8,7 @@ const Sidebar=({active,setActive,onClick})=>{
     
 const handleClick=(id)=>{
 setActive(id)
-onClick();
+// onClick()
 }
 
     return (
@@ -25,7 +25,7 @@ onClick();
                     return <li
                         key={item.id}
                         // onClick={() => setActive(item.id)}
-                        onClick={()=>handleClick(item.id)}
+                        onClick={handleClick(item.id)}
                         className={active === item.id ? 'active': ''}
                     >
                         {item.icon}
