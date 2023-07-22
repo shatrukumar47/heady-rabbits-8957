@@ -58,7 +58,7 @@ const DashBoard = () => {
             <DrawerHeader>Menus</DrawerHeader>
   
             <DrawerBody>
-            <Sidebar onClick={onClose} active={active} setActive={setActive} />
+            <Sidebar onclick={onClose} active={active} setActive={setActive} />
             </DrawerBody>
           </DrawerContent>
         </Drawer>
