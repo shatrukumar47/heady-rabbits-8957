@@ -14,7 +14,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import animeGif1 from "../images/animeGif1.gif";
 import animeGif2 from "../images/animeGif2.gif";
 import animeGif3 from "../images/animeGif3.gif";
@@ -22,9 +22,21 @@ import animeGif3 from "../images/animeGif3.gif";
 //AOS Styling
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 AOS.init();
 
 const HomePage = () => {
+  useEffect(()=>{
+  const getdata=()=>{
+    axios.get("http://localhost:3000/users")
+    .then((res)=>{
+      console.log(res)
+    }).catch(()=>{
+      console.log("err")
+    })
+  }
+  getdata()
+  },[])
   return (
     <Box bg={"#F2F2FC"}>
       <Container maxW={"7xl"}>

@@ -1,0 +1,83 @@
+{"users": [
+  
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  },
+  {
+  "id": 1,
+  "name": "Steve Smith",
+  "username": "@smith012",
+  "age": 32,
+  "email":"user12@gmail.com"
+  ,"password":"user123",
+  "financialinfo":{
+   "budget":100000,
+   "transaction":[],
+   "withdraw":[]
+  }
+  }
+  
+  ]
+  }
