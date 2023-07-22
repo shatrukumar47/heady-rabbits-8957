@@ -6,6 +6,8 @@ import DashBoard from './DashBoard'
 import Details from './Details'
 import Budget from './Budget'
 import { ProfilePage } from './ProfilePage'
+import { Withdraw } from './Withdraw'
+import { Transaction } from './Transaction'
 
 const MainRoutes = () => {
   return (
@@ -16,6 +18,8 @@ const MainRoutes = () => {
         <Route path='/dashboard' element={<DashBoard/>}/>
         <Route path='/details' element={<Details/>}/>
         <Route path='/budget' element={<Budget/>}/>
+        <Route path='/withdraw' element={<Withdraw/>}/>
+        <Route path='/transaction' element={<Transaction/>}/>
     </Routes>
   )
 }
