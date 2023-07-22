@@ -43,8 +43,8 @@ const DIV=styled.div`
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
-                margin:2rem;
-                /* margin-bottom: 2rem; */
+                margin-top:2rem;
+                margin-bottom: 2rem;
                 .income, .expense{
                     /* grid-column: span 2; */
                 }
@@ -53,7 +53,7 @@ const DIV=styled.div`
                     border: 2px solid #FFFFFF;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
-                    padding: 1rem;
+                    /* padding: 1rem; */
                     p{
                         font-size: 3.5rem;
                         font-weight: 700;

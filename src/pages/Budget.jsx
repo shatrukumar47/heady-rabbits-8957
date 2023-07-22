@@ -36,7 +36,7 @@ const Budget=()=>{
     }
 
     return (
-        <div style={{marginTop:"20px",marginLeft:"20px"}}>
+        <div style={{marginTop:"20px",marginLeft:"20px" , backgroundColor:"#F2F2FC"}}>
              <Heading as={"h3"} textAlign={'left'} size={"lg"}>Add Budget</Heading>
        
         <FormStyled onSubmit={handleSubmit}>
@@ -108,7 +108,7 @@ const FormStyled = styled.form`
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     width: 50%;
     margin: auto;
-    background-color: #cce5ff;
+    background-color: white;
     margin-top: 5px;
     margin-bottom: 15px;
     input, textarea, select{
