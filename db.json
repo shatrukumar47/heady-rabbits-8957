@@ -1,96 +1,211 @@
 {"users": [
   
-  {
-  "id": 1,
-  "name": "Shatrughan",
-  "username": "@shatrughan",
-  "age": 23,
-  "email":"shatrughan@gmail.com"
-  ,"password":"user001",
-  "financialinfo":{
-   "budget":[
     {
-      "id":1,
-      "name":""
-      ,"date":"",
-      "amount":100000,
-       "remark":"",
-       "category":""
-    }
-   ],
-   "transaction":[
+    "id": 1,
+    "name": "Shatrughan",
+    "username": "@shatrughan",
+    "age": 23,
+    "email":"shatrughan@gmail.com"
+    ,"password":"user001",
+    "financialinfo":{
+      "budget":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ],
+         "transaction":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ]
+      
+         ,
+         "withdraw":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }]
+  }
+    },
     {
-      "id":1,
-      "name":""
-      ,"date":"",
-      "amount":0
-    }
-   ]
-
-   ,
-   "withdraw":[
+    "id": 1,
+    "name": "Swati",
+    "username": "@swati07",
+    "age": 25,
+    "email":"swati121@gmail.com"
+    ,"password":"user002",
+    "financialinfo":{
+      "budget":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ],
+         "transaction":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ]
+      
+         ,
+         "withdraw":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }]
+  }
+    },
     {
-      "id":1,
-      "name":""
-      ,"date":"",
-      "amount":0
+    "id": 3,
+    "name": "Anurag",
+    "username": "@anuXrag",
+    "age": 20,
+    "email":"anurag134@gmail.com"
+    ,"password":"user003",
+    "financialinfo":{
+        "budget":[
+            {
+              "id":1,
+              "title":"to buy stocks"
+              ,"date":"12/03/2023",
+              "amount":25000,
+               "remark":"for stocks",
+               "category":"Stocks"
+            }
+           ],
+           "transaction":[
+            {
+              "id":1,
+              "title":"to buy stocks"
+              ,"date":"12/03/2023",
+              "amount":25000,
+               "remark":"for stocks",
+               "category":"Stocks"
+            }
+           ]
+        
+           ,
+           "withdraw":[
+            {
+              "id":1,
+              "title":"to buy stocks"
+              ,"date":"12/03/2023",
+              "amount":25000,
+               "remark":"for stocks",
+               "category":"Stocks"
+            }]
     }
-   ]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Swati",
-  "username": "@swati07",
-  "age": 32,
-  "email":"swati121@gmail.com"
-  ,"password":"user002",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Anurag",
-  "username": "@anuXrag",
-  "age": 32,
-  "email":"anurag134@gmail.com"
-  ,"password":"user003",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-
-  {
-  "id": 1,
-  "name": "Sonika",
-  "username": "@sonika12",
-  "age": 32,
-  "email":"sonika00@gmail.com"
-  ,"password":"user004",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  },
-  {
-  "id": 1,
-  "name": "Akash",
-  "username": "@akash0x",
-  "age": 32,
-  "email":"akash11@gmail.com"
-  ,"password":"user005",
-  "financialinfo":{
-   "budget":100000,
-   "transaction":[],
-   "withdraw":[]
-  }
-  }
+    },
   
-  ]
+    {
+    "id": 4,
+    "name": "Sonika",
+    "username": "@sonika12",
+    "age": 22,
+    "email":"sonika00@gmail.com"
+    ,"password":"user004",
+    "financialinfo":{
+      "budget":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ],
+         "transaction":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ]
+      
+         ,
+         "withdraw":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }]
   }
+    },
+    {
+    "id": 5,
+    "name": "Akash",
+    "username": "@akash0x",
+    "age": 21,
+    "email":"akash11@gmail.com"
+    ,"password":"user005",
+    "financialinfo":{
+      "budget":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ],
+         "transaction":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }
+         ]
+      
+         ,
+         "withdraw":[
+          {
+            "id":1,
+            "title":"to buy stocks"
+            ,"date":"12/03/2023",
+            "amount":25000,
+             "remark":"for stocks",
+             "category":"Stocks"
+          }]
+  }
+    }
+
+    ]
+    }
