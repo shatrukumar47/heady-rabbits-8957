@@ -13,9 +13,8 @@ import SignupPage from "../pages/SignupPage";
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [loginFlag, setLoginFlag] = useState(false);
-  const [registerFlag, setRegisterFlag] = useState(false);
+  const loginDisclosure = useDisclosure();
+  const signupDisclosure = useDisclosure();
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -58,7 +57,7 @@ const Navbar = () => {
               borderRadius: "20px",
             }}
             key={"signin"}
-            onClick={onOpen}
+            onClick={loginDisclosure.onOpen}
           >
             Log in
           </Button>
@@ -69,15 +68,15 @@ const Navbar = () => {
               borderRadius: "20px",
             }}
             key={"signout"}
-            onClick={onOpen}
+            onClick={signupDisclosure.onOpen}
           >
             Sign up
           </Button>
         </HStack>
       </HStack>
 
-      <LoginPage isOpen={isOpen} onClose={onClose} />
-      {/* <SignupPage isOpen={isOpen} onClose={onClose} /> */}
+      <LoginPage isOpen={loginDisclosure.isOpen} onClose={loginDisclosure.onClose} />
+      <SignupPage isOpen={signupDisclosure.isOpen} onClose={signupDisclosure.onClose} />
     </Box>
   );
 };

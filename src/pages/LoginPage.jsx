@@ -25,7 +25,6 @@ import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 const LoginPage = ({isOpen, onClose}) => {
 
-    console.log("Login", isOpen);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
@@ -36,6 +35,19 @@ const LoginPage = ({isOpen, onClose}) => {
     // Toast feature
     const toast = useToast();
     const positions = ["top"];
+
+    //Login handle
+    const handleLogin = ()=>{
+      let user = {
+        email,
+        password
+      }
+
+      // console.log(user)
+    }
+
+  
+
 
   return (
     <Modal
@@ -98,7 +110,7 @@ const LoginPage = ({isOpen, onClose}) => {
         </ModalBody>
 
         <ModalFooter>
-            <Button colorScheme='blue' mr={3} >
+            <Button colorScheme='blue' mr={3} onClick={handleLogin} >
               Log in
             </Button>
             <Button onClick={onClose}>Cancel</Button>

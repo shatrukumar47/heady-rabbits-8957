@@ -12,6 +12,7 @@ import {
   Text,
   VStack,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import React from "react";
@@ -22,9 +23,12 @@ import animeGif3 from "../images/animeGif3.gif";
 //AOS Styling
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SignupPage from "./SignupPage";
 AOS.init();
 
 const HomePage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box bg={"#F2F2FC"}>
       <Container maxW={"7xl"}>
@@ -79,6 +83,7 @@ const HomePage = () => {
                   borderRadius: "20px",
                 }}
                 rightIcon={<ArrowForwardIcon />}
+                onClick={onOpen}
               >
                 Get Started
               </Button>
@@ -113,10 +118,6 @@ const HomePage = () => {
 
         <div
           data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
         >
           <Stack
             align={"center"}
@@ -172,10 +173,6 @@ const HomePage = () => {
 
         <div
           data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
         >
           <Stack
             align={"center"}
@@ -232,10 +229,6 @@ const HomePage = () => {
 
         <div
           data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
         >
           <Stack
             align={"center"}
@@ -290,10 +283,6 @@ const HomePage = () => {
 
         <div
           data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
         >
           <Grid
             templateColumns={{
@@ -349,6 +338,8 @@ const HomePage = () => {
           </Grid>
         </div>
       </Container>
+
+      <SignupPage isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };
