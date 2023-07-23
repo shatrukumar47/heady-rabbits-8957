@@ -16,12 +16,10 @@ import {
 import { Withdraw } from "./Withdraw";
 import { Transaction } from "./Transaction";
 import { ProfilePage } from "./ProfilePage";
+import Subscription from "./Subscription";
 
 const DashBoard = () => {
   const [active, setActive] = useState(2);
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const btnRef = React.useRef()
-  const [active, setActive] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -29,24 +27,22 @@ const DashBoard = () => {
     switch (active) {
       case 1:
         return <ProfilePage />;
-        
+
       case 2:
         return <Details />;
-        
+
       case 3:
         return <Budget />;
-       
+
       case 4:
         return <Withdraw />;
-       
-        case 5:
+
+      case 5:
         return <Subscription />;
-       
+
       case 6:
         return <Transaction />;
-        return <Transaction />;
-      case 5:
-        return <ProfilePage />;
+
       default:
         return <Details />;
     }
