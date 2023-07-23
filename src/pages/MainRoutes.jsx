@@ -3,12 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import HomePage from './HomePage'
 import PageNotFound from './PageNotFound'
 import DashBoard from './DashBoard'
-import Details from './Details'
-import Budget from './Budget'
-import { ProfilePage } from './ProfilePage'
 import PrivateRoute from './PrivateRoute'
-import { Withdraw } from './Withdraw'
-import { Transaction } from './Transaction'
 
 const MainRoutes = () => {
   return (
@@ -17,7 +12,7 @@ const MainRoutes = () => {
         <Route path='*' element={<PageNotFound />} />
         <Route path='/dashboard' element={
           <PrivateRoute>
-            <DashBoard/>
+            <DashBoard />
           </PrivateRoute>
         }/>
     </Routes>
