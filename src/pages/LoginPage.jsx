@@ -18,6 +18,9 @@ import {
     Container
 } from "@chakra-ui/react";
 import { EmailIcon, LockIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAction } from '../Redux/authReducer/action';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 
@@ -32,6 +35,16 @@ const LoginPage = ({isOpen, onClose}) => {
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
 
+    const navigate = useNavigate();
+
+    //Redux Store
+    const isAuth = useSelector((store)=> store.authReducer.isAuth)
+    const loading = useSelector((store)=> store.authReducer.isLoading)
+    const error = useSelector((store)=> store.authReducer.isError)
+    const User = useSelector((store)=> store.authReducer.User)
+    const errorMessage = useSelector((store)=> store.authReducer.errorMessage)
+    const dispatch = useDispatch();
+
     // Toast feature
     const toast = useToast();
     const positions = ["top"];
@@ -42,13 +55,36 @@ const LoginPage = ({isOpen, onClose}) => {
         email,
         password
       }
+      if(email && password){
+        dispatch(loginAction(user)).then((res)=>{
+          console.log(res)
 
-      // console.log(user)
+          if(res.data.length === 0){
+            return  toast({
+              title: `Invalid email and password !`,
+              position: positions[0],
+              isClosable: true,
+              duration: 1000,
+              status: "error",
+            });
+          }else
+          if(res.data.length === 1){
+            navigate("/dashboard");
+            onClose()
+          }
+        })
+
+      }else{
+        toast({
+          title: `All fields are required !`,
+          position: positions[0],
+          isClosable: true,
+          duration: 1000,
+          status: "warning",
+      });
+      }
     }
-
-  
-
-
+    
   return (
     <Modal
         isCentered

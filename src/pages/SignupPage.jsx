@@ -15,18 +15,20 @@ import {
   InputLeftElement,
   InputRightElement,
   useToast,
-  Container,
-  HStack,
-  Stack,
 } from "@chakra-ui/react";
 import {
-  CalendarIcon,
   EditIcon,
   EmailIcon,
   LockIcon,
   ViewIcon,
   ViewOffIcon,
 } from "@chakra-ui/icons";
+import { signupData } from "../utils/userData";
+import { SignupAction } from "../Redux/authReducer/action";
+import { useDispatch } from "react-redux";
+import { LOGIN_SUCCESS } from "../Redux/actionTypes";
+import { useNavigate } from "react-router-dom";
+
 
 const SignupPage = ({ isOpen, onClose }) => {
 
@@ -34,14 +36,19 @@ const SignupPage = ({ isOpen, onClose }) => {
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
   const handleClick = () => setShow(!show);
-  const [userInfo, setUserInfo] = useState({
-    firstname: "",
-    lastname: "",
-    dateOfBirth: "",
-    email: "",
-    password: "",
-  });
+  const [userInfo, setUserInfo] = useState(signupData);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
+  //Redux Dispatch
+  const dispatch = useDispatch();
+
+  // destructuring userInfo state
+  const { name, username, email, password } = userInfo;
+
+  // Toast feature
+  const toast = useToast();
+  const positions = ["top"];
 
   // Input handling function
   const handleChange = (e) => {
@@ -54,11 +61,32 @@ const SignupPage = ({ isOpen, onClose }) => {
 
   //Submit button handle function
   const handleSignup = ()=>{
-    console.log(userInfo)
+    if(name && username && email && password){
+      setLoading(true)
+      SignupAction(userInfo).then((res)=>{
+        setLoading(false)
+        toast({
+          title: `Welcome aboard, ${res?.data?.name}.`,
+          position: positions[0],
+          isClosable: true,
+          duration: 2000,
+          status: "success",
+        });
+        dispatch({type:LOGIN_SUCCESS, payload: res?.data})
+        onClose();
+        navigate("/dashboard");
+      })
+    }else{
+      toast({
+        title: `All fields are required !`,
+        position: positions[0],
+        isClosable: true,
+        duration: 1000,
+        status: "warning",
+    });
+    }
   }
 
-  // destructuring userInfo state
-  const { firstname, lastname, dateOfBirth, email, password } = userInfo;
 
   return (
     <Modal
@@ -75,55 +103,39 @@ const SignupPage = ({ isOpen, onClose }) => {
         <ModalHeader>Sign up</ModalHeader>
         <ModalCloseButton />
         <ModalBody pb={6}>
-          <Stack direction={{base:"column", md:"column", lg:"row"}}>
-            <FormControl>
-              <FormLabel>First name : </FormLabel>
-              <InputGroup>
-                <InputLeftElement pointerEvents="none">
-                  <EditIcon color="gray.300" />
-                </InputLeftElement>
-                <Input
-                  type="text"
-                  name="firstname"
-                  value={firstname}
-                  placeholder="First name"
-                  onChange={handleChange}
-                />
-              </InputGroup>
-            </FormControl>
-
-            <FormControl>
-              <FormLabel>Last name : </FormLabel>
-              <InputGroup>
-                <InputLeftElement pointerEvents="none">
-                  <EditIcon color="gray.300" />
-                </InputLeftElement>
-                <Input
-                  type="text"
-                  name="lastname"
-                  value={lastname}
-                  placeholder="Last name"
-                  onChange={handleChange}
-                />
-              </InputGroup>
-            </FormControl>
-          </Stack>
-          <FormControl>
-            <FormLabel>Date of Birth : </FormLabel>
+          <FormControl marginBottom={"5px"}>
+            <FormLabel>Name : </FormLabel>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
-                <CalendarIcon color="gray.300" />
+                <EditIcon color="gray.300" />
               </InputLeftElement>
               <Input
-                type="date"
-                name="dateOfBirth"
-                value={dateOfBirth}
+                type="text"
+                name="name"
+                value={name}
+                placeholder="Name"
                 onChange={handleChange}
               />
             </InputGroup>
           </FormControl>
 
-          <FormControl>
+          <FormControl marginBottom={"5px"}>
+            <FormLabel>Username : </FormLabel>
+            <InputGroup>
+             <InputLeftElement pointerEvents="none">
+                <EditIcon color="gray.300" />
+              </InputLeftElement>
+              <Input
+                type="text"
+                placeholder="username e.g. abc47"
+                name="username"
+                value={username}
+                onChange={handleChange}
+              />
+            </InputGroup>
+          </FormControl>
+
+          <FormControl marginBottom={"5px"}>
             <FormLabel>Email : </FormLabel>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
@@ -139,7 +151,7 @@ const SignupPage = ({ isOpen, onClose }) => {
             </InputGroup>
           </FormControl>
 
-          <FormControl>
+          <FormControl marginBottom={"5px"}>
             <FormLabel>Password : </FormLabel>
             <InputGroup>
               <InputLeftElement pointerEvents="none">
@@ -168,8 +180,8 @@ const SignupPage = ({ isOpen, onClose }) => {
         </ModalBody>
 
         <ModalFooter>
-          <Button colorScheme="green" onClick={handleSignup} marginRight={"10px"}>Submit</Button>
-          <Button onClick={onClose}>Cancel</Button>
+          <Button colorScheme="green" onClick={handleSignup} marginRight={"10px"} isLoading={loading} loadingText="Submitting">Submit</Button>
+          <Button onClick={onClose} isDisabled={loading}>Cancel</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

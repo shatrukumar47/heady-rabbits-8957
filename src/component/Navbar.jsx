@@ -1,4 +1,5 @@
 import {
+  Avatar,
   Box,
   Button,
   HStack,
@@ -10,17 +11,33 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.png";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { burger } from "../utils/icons";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [scroll, setScroll] = useState(false);
   const loginDisclosure = useDisclosure();
   const signupDisclosure = useDisclosure();
+  const navigate = useNavigate();
 
+  //Redux Store
+  const isAuth = useSelector((store)=> store.authReducer.isAuth)
+  const User = useSelector((store)=> store.authReducer.User)
+
+  //Navbar Sticky 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 0);
     });
   }, []);
+
+  // Handle Dashboard BTN
+  const handleDashboardBtn = ()=>{
+    navigate("/dashboard")
+  }
+
 
   return (
     <Box
@@ -34,11 +51,14 @@ const Navbar = () => {
         paddingRight={{ base: "10px", md: "10px", lg: "60px" }}
       >
         <HStack spacing={"5px"}>
+          {/* <HamburgerIcon color={"white"} fontSize={"25px"} marginLeft={"10px"} display={{base:"block", md:"block", lg:"none"}} onClick={()=>{}} /> */}
           <Image
             boxSize="80px"
             objectFit={"cover"}
             src={logo}
             alt="spendwise"
+            onClick={()=> navigate("/")}
+            cursor={"pointer"}
           />
           <Text
             fontSize={"md"}
@@ -48,7 +68,21 @@ const Navbar = () => {
             spendwise
           </Text>
         </HStack>
-        <HStack spacing={{ base: "5px", md: "10px", lg: "20px" }}>
+        {
+          isAuth ? <HStack spacing={{ base: "5px", md: "10px", lg: "20px" }}>
+            <Button
+            color={"white"}
+            variant={"outline"}
+            transition={"border-radius 0.3s ease-in-out"}
+            _hover={{
+              borderRadius: "20px",
+            }}
+            onClick={handleDashboardBtn}
+          >
+            Dashboard
+          </Button>
+          <Avatar name={User?.name} src='https://bit.ly/broken-link' />
+        </HStack> : <HStack spacing={{ base: "5px", md: "10px", lg: "20px" }}>
           <Button
             color={"white"}
             variant={"outline"}
@@ -56,7 +90,6 @@ const Navbar = () => {
             _hover={{
               borderRadius: "20px",
             }}
-            key={"signin"}
             onClick={loginDisclosure.onOpen}
           >
             Log in
@@ -67,12 +100,12 @@ const Navbar = () => {
             _hover={{
               borderRadius: "20px",
             }}
-            key={"signout"}
             onClick={signupDisclosure.onOpen}
           >
             Sign up
           </Button>
         </HStack>
+        }
       </HStack>
 
       <LoginPage isOpen={loginDisclosure.isOpen} onClose={loginDisclosure.onClose} />

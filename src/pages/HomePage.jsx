@@ -4,18 +4,14 @@ import {
   Container,
   Flex,
   Grid,
-  HStack,
   Heading,
-  IconButton,
   Image,
   Stack,
   Text,
   VStack,
-  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import React, { useEffect } from "react";
 import animeGif1 from "../images/animeGif1.gif";
 import animeGif2 from "../images/animeGif2.gif";
 import animeGif3 from "../images/animeGif3.gif";
@@ -25,22 +21,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import SignupPage from "./SignupPage";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 AOS.init();
 
 const HomePage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate= useNavigate();
 
-  useEffect(()=>{
-  const getdata=()=>{
-    axios.get("http://localhost:3000/users")
-    .then((res)=>{
-      console.log(res)
-    }).catch(()=>{
-      console.log("err")
-    })
-  }
-  getdata()
-  },[])
+  //Redux Store
+  const isAuth = useSelector((store)=> store.authReducer.isAuth)
+
   return (
     <Box bg={"#F2F2FC"}>
       <Container maxW={"7xl"}>
@@ -86,19 +77,34 @@ const HomePage = () => {
               improve their spending habits
             </Text>
             <Stack alignItems={"center"}>
-              <Button
-                variant={"outline"}
-                colorScheme={"blue"}
-                padding={"23px"}
-                transition={"border-radius 0.3s ease-in-out"}
-                _hover={{
-                  borderRadius: "20px",
-                }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-              >
-                Get Started
-              </Button>
+              {
+                isAuth ? <Button
+                  variant={"outline"}
+                  colorScheme={"blue"}
+                  padding={"23px"}
+                  transition={"border-radius 0.3s ease-in-out"}
+                  _hover={{
+                    borderRadius: "20px",
+                  }}
+                  rightIcon={<ArrowForwardIcon />}
+                  onClick={()=> navigate("/dashboard") }
+                >
+                  Go to Dashboard
+                </Button> : <Button
+                  variant={"outline"}
+                  colorScheme={"blue"}
+                  padding={"23px"}
+                  transition={"border-radius 0.3s ease-in-out"}
+                  _hover={{
+                    borderRadius: "20px",
+                  }}
+                  rightIcon={<ArrowForwardIcon />}
+                  onClick={onOpen}
+                >
+                  Get Started
+                </Button>
+              }
+              
             </Stack>
           </Stack>
           <Flex

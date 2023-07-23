@@ -24,6 +24,7 @@
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
     "save": "^2.9.0",
     "styled-components": "^6.0.5",
     "thunk": "^0.0.1",
@@ -53,18 +54,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shatrukumar47/heady-rabbits-8957.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/shatrukumar47/heady-rabbits-8957/issues"
-  },
-  "homepage": "https://github.com/shatrukumar47/heady-rabbits-8957#readme"
+  }
 }

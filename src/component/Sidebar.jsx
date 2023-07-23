@@ -1,15 +1,12 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Menus } from "../utils/MenuItems";
 import { signOut } from "../utils/icons";
 import { Button } from "@chakra-ui/react";
+
+
 const Sidebar=({active,setActive,onclick})=>{
-    
-// const handleClick=(id)=>{
-// setActive(id)
-// // onclick()
-// }
+
 
     return (
     <NavStyled>
