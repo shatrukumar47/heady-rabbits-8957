@@ -145,9 +145,7 @@ const LoginPage = ({ isOpen, onClose }) => {
           >
             Log in
           </Button>
-          <Button onClick={onClose} isDisabled={loading}>
-            Cancel
-          </Button>
+          <Button onClick={onClose}>Cancel</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
