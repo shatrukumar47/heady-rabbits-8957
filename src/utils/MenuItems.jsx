@@ -1,40 +1,41 @@
-import { Withdraw, dashboard, history, profile, transactions } from "./icons"
+import { Withdraw, dashboard, history, profile, transactions,subscribe } from "./icons"
 export const Menus=[
     {
         id: 1,
+        title: "Profile",
+        icon: profile,
+        link: "/Profile",
+    },
+    {
+        id: 2,
         title: 'Dashboard',
         icon: dashboard,
         link: '/details'
     },
     {
-        id: 2,
+        id: 3,
         title: "Budget",
         icon: transactions,
         link: "/budget",
     },
     {
-        id: 3,
+        id: 4,
         title: "Withdraw",
         icon: Withdraw,
         link: "/withdraw",
     },
     {
-        id: 4,
+        id: 5,
         title: "Subscription",
-        icon: history,
+        icon: subscribe,
         link: "/subscription",
     },
     {
-        id: 5,
+        id: 6,
         title: "Transaction history",
         icon: history,
         link: "/transaction",
     },
-    {
-        id: 6,
-        title: "Profile",
-        icon: profile,
-        link: "/Profile",
-    }
+    
 
 ]

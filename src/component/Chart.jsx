@@ -11,11 +11,12 @@ import {Chart as ChartJs,
     ArcElement,
 } from 'chart.js'
 
-// import {Line} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import styled from '@emotion/styled'
 import { Heading } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 // import { useGlobalContext } from '../../context/globalContext'
-// import { dateFormat } from '../../utils/dateFormat'
+import { dateFormat } from '../utils/dateFormat'
 
 ChartJs.register(
     CategoryScale,
@@ -29,50 +30,39 @@ ChartJs.register(
 )
 
 function Chart() {
-    // const {incomes, expenses} = useGlobalContext()
+    const user = useSelector(store=>store.authReducer.User)
+    const {budget,withdraw}=user.financialinfo
+    // const totalbudget=budget.reduce((acc, cur) => acc + cur.amount, 0)
+    // const totalExpense=withdraw.reduce((acc,cur)=>acc+cur.amount,0)
+    console.log(budget,withdraw)
 
-    // const data = {
-    //     labels: incomes.map((inc) =>{
-    //         const {date} = inc
-    //         return dateFormat(date)
-    //     }),
-    //     datasets: [
-    //         {
-    //             label: 'Income',
-    //             data: [
-    //                 ...incomes.map((income) => {
-    //                     const {amount} = income
-    //                     return amount
-    //                 })
-    //             ],
-    //             backgroundColor: 'green',
-    //             tension: .2
-    //         },
-    //         {
-    //             label: 'Expenses',
-    //             data: [
-    //                 ...expenses.map((expense) => {
-    //                     const {amount} = expense
-    //                     return amount
-    //                 })
-    //             ],
-    //             backgroundColor: 'red',
-    //             tension: .2
-    //         }
-    //     ]
-    // }
+    const data = {
+        labels: budget.map((inc) => inc.date),
+  datasets: [
+    {
+      label: 'Income',
+      data: budget.map((income) => income.amount), // Removed unnecessary destructuring
+      backgroundColor: 'green',
+      tension: 0.2,
+    },
+    {
+      label: 'Expenses',
+      data: withdraw.map((expense) => expense.amount), // Removed unnecessary destructuring
+      backgroundColor: 'red',
+      tension: 0.2,
+    },
+  ]
+    }
 
 
     return (
-        <div style={{marginTop:"20px", marginLeft:"20px",textAlign:"left"}}>
-             <Heading as={"h3"} size={'lg'}>Analysis</Heading>
+            
        
         <ChartStyled >
-            {/* <Line data={data} /> */}
+            <Line data={data} />
            
-            <img src={chart}/>
+            {/* <img src={chart}/> */}
         </ChartStyled>
-        </div>
     )
 }
 
@@ -82,10 +72,11 @@ const ChartStyled = styled.div`
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
     text-align: start;
-    width: 70%;
+    width: 90%;
+    background-color: white;
     margin: auto;
     
-    /* border-radius: 20px; */
+    border-radius: 20px;
     height: 100%;
     img{
         margin-top:10px ;

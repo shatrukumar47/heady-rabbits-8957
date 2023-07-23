@@ -19,7 +19,7 @@ import { ProfilePage } from "./ProfilePage";
 import Subscription from "./Subscription";
 
 const DashBoard = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(2);
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
@@ -27,17 +27,22 @@ const DashBoard = () => {
     
     switch (active) {
       case 1:
-        return <Details />;
-      case 2:
-        return <Budget />;
-      case 3:
-        return <Withdraw />;
-      case 4:
-        return <Subscription />;
-        case 5:
-        return <Transaction />;
-      case 6:
         return <ProfilePage />;
+        
+      case 2:
+        return <Details />;
+        
+      case 3:
+        return <Budget />;
+       
+      case 4:
+        return <Withdraw />;
+       
+        case 5:
+        return <Subscription />;
+       
+      case 6:
+        return <Transaction />;
       default:
         return <Details />;
     }

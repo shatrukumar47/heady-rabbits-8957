@@ -1,104 +1,154 @@
-import React, { useState } from 'react'
-import styled from '@emotion/styled'
-import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import { Button, Heading } from '@chakra-ui/react';
-import { FcPlus } from "react-icons/fc";
-// import { useGlobalContext } from '../../context/globalContext';
-// import Button from '../Button/Button';
-// import { plus } from '../../utils/Icons';
-const Budget=()=>{
-    const [inputState, setInputState] = useState({
-        title: '',
-        amount: '',
-        date: '',
-        category: '',
-        description: '',
-    })
+import { FcPlus } from 'react-icons/fc';
 
-    const { title, amount, date, category,description } = inputState;
+import { addBudget } from '../Redux/budgetReducer/action';
+import { useDispatch, useSelector } from 'react-redux';
 
-    const handleInput = name => e => {
-        setInputState({...inputState, [name]: e.target.value})
-        // setError('')
-    }
+const Budget = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.authReducer.User);
+  const [inputState, setInputState] = useState({
+    title: '',
+    amount: '',
+    date: '',
+    remark: '',
+    category: '',
+  });
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        // addIncome(inputState)
-        setInputState({
-            title: '',
-            amount: '',
-            date: '',
-            category: '',
-            description: '',
-        })
-    }
 
-    return (
-        <div style={{marginTop:"20px",marginLeft:"20px" , backgroundColor:"#F2F2FC"}}>
-             <Heading as={"h3"} textAlign={'left'} size={"lg"}>Add Budget</Heading>
-       
-        <FormStyled onSubmit={handleSubmit}>
-            {/* {error && <p className='error'>{error}</p>} */}
-           
-            <div className="input-control">
-                <input 
-                    type="text" 
-                    value={title}
-                    name={'title'} 
-                    placeholder="Salary Title"
-                    onChange={handleInput('title')}
-                />
-            </div>
-            <div className="input-control">
-                <input value={amount}  
-                    type="text" 
-                    name={'amount'} 
-                    placeholder={'Salary Amount'}
-                    onChange={handleInput('amount')} 
-                />
-            </div>
-            <div className="input-control">
-                <div className='date-pick'>
-                <DatePicker 
-                    id='date'
-                    placeholderText='Enter A Date'
-                    selected={date}
-                    dateFormat="dd/MM/yyyy"
-                    onChange={(date) => {
-                        setInputState({...inputState, date: date})
-                    }}
-                />
-                </div>
-            </div>
-            <div className="selects input-control">
-                <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value=""  disabled >Select Option</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investiments</option>
-                    <option value="stocks">Stocks</option>
-                    <option value="bitcoin">Bitcoin</option>
-                    <option value="bank">Bank Transfer</option>  
-                    <option value="youtube">Youtube</option>  
-                    <option value="other">Other</option>  
-                </select>
-            </div>
-            <div className="input-control">
-                <textarea name="description" value={description} placeholder='Add A Reference' id="description" cols="20" rows="4" onChange={handleInput('description')}></textarea>
-            </div>
-            <div className="submit-btn">
-{/*            
-                <Button border={"1px solid blue"} leftIcon={<FcPlus/>} color={'var(--chakra-colors-blue-500)'} variant={"outline"}
-                size={"lg"}    bRad={'30px'}>Add Budget</Button> */}
-                <button className='button'><div>{<FcPlus/>} Add Budget</div></button>
-            </div>
-        </FormStyled>
+  const handleAddBudget = () => {
+    // Create an array of new budget objects
+    const newBudgets = [
+      {
+        title: title,
+        amount: amount,
+        date: date,
+        remark: remark,
+        category: category,
+      },
+    ];
+    dispatch(addBudget(newBudgets, user));
+  };
+  const { title, amount, date, remark, category } = inputState;
+
+  const handleInput = (name) => (e) => {
+    setInputState({ ...inputState, [name]: name === 'amount' ? +e.target.value : e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleAddBudget();
+    setInputState({
+      title: '',
+      amount: '',
+      date: '',
+      remark: '',
+      category: '',
+    });
+  };
+
+  return (
+    <DIV>
+      <Heading as="h3" textAlign="center" mt={2} size="lg">
+        Add Budget
+      </Heading>
+
+      <FormStyled onSubmit={handleSubmit}>
+        {/* {error && <p className='error'>{error}</p>} */}
+        <div className="input-control">
+          <label>Title:</label>
+          <input
+            type="text"
+            value={title}
+            name="title"
+            placeholder="Salary Title"
+            onChange={handleInput('title')}
+          />
         </div>
-    )
-}
+        <div className="input-control">
+          <label>Amount:</label>
+          <input
+            value={amount}
+            type="number"
+            name="amount"
+            placeholder="Salary Amount"
+            onChange={handleInput('amount')}
+          />
+        </div>
+        <div className="input-control">
+          <label>Date:</label>
+          <div className="date-pick">
+            <DatePicker
+              id="date"
+              placeholderText="Enter A Date"
+              selected={date}
+              dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setInputState({ ...inputState, date: date });
+              }}
+            />
+          </div>
+        </div>
+        <div className="selects input-control">
+          <label>Category:</label>
+          <select
+            required
+            value={category}
+            name="category"
+            id="category"
+            onChange={handleInput('category')}
+          >
+            <option value="" disabled>
+              Select Option
+            </option>
+            <option value="salary">Salary</option>
+            <option value="freelancing">Freelancing</option>
+            <option value="investments">Investiments</option>
+            <option value="stocks">Stocks</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="bank">Bank Transfer</option>
+            <option value="youtube">Youtube</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="input-control">
+          <label>Remark:</label>
+          <textarea
+            name="description"
+            value={remark}
+            placeholder="Remark"
+            id="description"
+            cols="20"
+            rows="2"
+            onChange={handleInput('remark')}
+          ></textarea>
+        </div>
+        <div className="submit-btn">
+          <button className="button">
+            <div>
+              <FcPlus /> Add Budget
+            </div>
+          </button>
+        </div>
+      </FormStyled>
+    </DIV>
+  );
+};
 
+const DIV=styled.div`
+background-color: #F2F2FC;
+/* margin-top:30px; */
+width: 100%;
+/* margin-left:20px; */
+/* border: 1px solid red; */
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
 const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
@@ -106,8 +156,9 @@ const FormStyled = styled.form`
     padding: 50px;
   border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    width: 50%;
+    width: 90%;
     margin: auto;
+    text-align: center;
     background-color: white;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -127,44 +178,48 @@ const FormStyled = styled.form`
         }
     }
     .input-control{
+        /* border: 1px solid red; */
+        margin: auto;
+        width: 100%;
+        text-align: left;
         input{
-            width: 100%;
+            width: 90%;
+            display: block;
         }
     }
     textarea{
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
+        width: 90%;
+        display: block;
     }
     .selects{
-        display: flex;
-        justify-content: flex-start;
-        
         select{
             color: rgba(34, 34, 96, 0.4);
-            width: 48%;
+            width: 90%;
+            display: block;
             &:focus, &:active{
                 color: rgba(34, 34, 96, 1);
             }
         }
     }
-.date-pick{
+.input-control > .date-pick{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
+    /* margin-left:30px;  */
+    /* border: 1px solid blue; */
     width: 90%;
 }
     .submit-btn{
-/*        
-            box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+      
+            /* box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
             &:hover{
                 background: var(--color-green) !important;
-            } */
+            }  */
         
     }
     .button {
  display: inline-block;
  padding: 12px 24px;
- width: 40%;
+ width: 30%;
  border: 1px solid #4f4f4f;
  border-radius: 50px;
  transition: all 0.2s ease-in;

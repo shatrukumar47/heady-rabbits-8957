@@ -5,13 +5,14 @@ import { signOut } from "../utils/icons";
 import { Button } from "@chakra-ui/react";
 import { deleteLS } from "../LocalStorage/LocalStorageFn";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT_SUCCESS } from "../Redux/actionTypes";
 
 const Sidebar = ({ active, setActive, onclick }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    const User = useSelector((store)=> store.authReducer.User)
+    console.log(User)
     //Handle Logout
     const handleLogout = ()=>{
         deleteLS("auth");
@@ -26,8 +27,8 @@ const Sidebar = ({ active, setActive, onclick }) => {
           alt=""
         />
         <div className="text">
-          <h2>Akash</h2>
-          <p>My Account</p>
+          <h2>{User.name}</h2>
+          <p>{User.username}</p>
         </div>
       </div>
       <ul className="menu-items">
