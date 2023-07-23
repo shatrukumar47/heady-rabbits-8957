@@ -18,6 +18,9 @@ import { Transaction } from "./Transaction";
 import { ProfilePage } from "./ProfilePage";
 
 const DashBoard = () => {
+  const [active, setActive] = useState(2);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
   const [active, setActive] = useState(1);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -25,12 +28,22 @@ const DashBoard = () => {
   const displayData = () => {
     switch (active) {
       case 1:
-        return <Details />;
+        return <ProfilePage />;
+        
       case 2:
-        return <Budget />;
+        return <Details />;
+        
       case 3:
-        return <Withdraw />;
+        return <Budget />;
+       
       case 4:
+        return <Withdraw />;
+       
+        case 5:
+        return <Subscription />;
+       
+      case 6:
+        return <Transaction />;
         return <Transaction />;
       case 5:
         return <ProfilePage />;

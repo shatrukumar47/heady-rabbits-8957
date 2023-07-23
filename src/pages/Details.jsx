@@ -1,19 +1,31 @@
 import styled from "@emotion/styled";
 import Chart from "../component/Chart";
+import { useSelector } from "react-redux";
+import { Heading } from "@chakra-ui/layout";
+import { left } from "@popperjs/core";
 const dollar="₹"
 const Details=()=>{
+    const user = useSelector(store=>store.authReducer.User)
+    const {budget,withdraw}=user.financialinfo
+
+    const totalbudget=budget.reduce((acc, cur) => acc + +cur.amount, 0)
+
+    const totalExpense=withdraw.reduce((acc,cur)=>acc + +cur.amount,0)
+
+    console.log(budget,withdraw,totalbudget)
     const totalBalance=()=>{
-    return 0
+    return totalbudget-totalExpense
     }
     const totalExpenses=()=>{
-        return 0
+        return totalExpense
         }
         const totalIncome=()=>{
-            return 0
+            return totalbudget
             }
     return(
         <DIV>
-            <Chart/>
+        
+            
             <div className="amount-con">
                             <div className="income">
                                 <h2>Total Income</h2>
@@ -34,15 +46,27 @@ const Details=()=>{
                                 </p>
                             </div>
                         </div>
+            <div className="chart-div">
+        <Heading as={"h3"} textAlign={"center"} size={'lg'}>Analysis</Heading>
+        <Chart/>
+        </div>
         </DIV>
     )
 }
 
 const DIV=styled.div`
+.chart-div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
 .amount-con{
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 2rem;
+                margin: auto;
+                width: 90%;
                 margin-top:2rem;
                 margin-bottom: 2rem;
                 .income, .expense{
@@ -51,6 +75,7 @@ const DIV=styled.div`
                 .income, .expense, .balance{
                     /* background: #FCF6F9; */
                     border: 2px solid #FFFFFF;
+                    background-color: white;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
                     /* padding: 1rem; */
