@@ -1,16 +1,19 @@
-import { Box, Container, Heading, Tfoot, useMediaQuery } from "@chakra-ui/react";
+import { Box, Container, Heading, Td, Tfoot, useMediaQuery } from "@chakra-ui/react";
 import {
   Table,
   Thead,
   Tbody,
   Tr,
   Th,
-  Td,
   TableContainer,
 } from '@chakra-ui/react';
+import { useSelector } from "react-redux";
 
 export const Transaction = () => {
   const [isSmallerThan900] = useMediaQuery("(max-width: 900px)");
+  const User = useSelector((store)=> store.authReducer.User);
+const {budget,withdraw}=User.financialinfo;
+console.log(budget)
 
   return (
     <>
@@ -18,7 +21,7 @@ export const Transaction = () => {
         <Box>
           <TableContainer>
             <Heading as={"h4"} size={"md"} color={"green"}>Credited Transaction</Heading>
-            <Table variant='striped' colorScheme='blue'>
+            <Table variant='striped' colorScheme='blue' textAlign={"center"}>
               <Thead>
                 <Tr>
                   <Th>Title</Th>
@@ -27,22 +30,14 @@ export const Transaction = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>millimetres (mm)</Td>
-                  <Td isNumeric>25.4</Td>
-                </Tr>
-                <Tr>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
-                </Tr>
-                <Tr>
-                  <Td>yards</Td>
-                  <Td>metres (m)</Td>
-                  <Td isNumeric>0.91444</Td>
-                </Tr>
-              </Tbody>
+              {budget.map((item) => (
+          <Tr key={item.id}>
+            <Td>{item.title}</Td>
+            <Td>{item.date}</Td>
+            <Td>{item.amount}</Td>
+          </Tr>
+        ))}
+        </Tbody>
               <Tfoot>
               </Tfoot>
             </Table>
@@ -60,22 +55,14 @@ export const Transaction = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td>inches</Td>
-                  <Td>millimetres (mm)</Td>
-                  <Td isNumeric>25.4</Td>
-                </Tr>
-                <Tr>
-                  <Td>feet</Td>
-                  <Td>centimetres (cm)</Td>
-                  <Td isNumeric>30.48</Td>
-                </Tr>
-                <Tr>
-                  <Td>yards</Td>
-                  <Td>metres (m)</Td>
-                  <Td isNumeric>0.91444</Td>
-                </Tr>
-              </Tbody>
+              {withdraw.map((item) => (
+          <Tr key={item.id}>
+            <Td>{item.title}</Td>
+            <Td>{item.date}</Td>
+            <Td>{item.amount}</Td>
+          </Tr>
+        ))}
+        </Tbody>
               <Tfoot>
               </Tfoot>
             </Table>

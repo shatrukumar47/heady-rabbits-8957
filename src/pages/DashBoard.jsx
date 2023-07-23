@@ -45,6 +45,7 @@ const DashBoard = () => {
 
 
   return (
+    <>
     <Container maxW={"8xl"}>
       <DIV>
     <div className="drawer-menu" >
@@ -72,34 +73,8 @@ const DashBoard = () => {
         </div>
         <div id="details">{displayData()}</div>
       </DIV>
-    <Container maxW={"7xl"}>
-    <DIV>
-   <div className="drawer-menu" >
-   <Button ref={btnRef} bg='black' color={"white"} onClick={onOpen}>
-          {burger}</Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='left'
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Menus</DrawerHeader>
-  
-            <DrawerBody>
-            <Sidebar onclick={onClose} active={active} setActive={setActive} />
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-   </div>
-      <div id="side-bar">
-        <Sidebar active={active} setActive={setActive} />
-      </div>
-      <div id="details">{displayData()}</div>
-    </DIV>
-    </Container>
+      </Container>
+    </>
   );
 };
 export default DashBoard;
@@ -146,6 +121,4 @@ const DIV = styled.div`
     display: block;
     text-align: left;
     padding-left: 10px;
-}}
-  
-`
+}}`
