@@ -16,19 +16,19 @@ export const Menus=[
         id: 3,
         title: "Withdraw",
         icon: Withdraw,
-        link: "/budget",
+        link: "/withdraw",
     },
     {
         id: 4,
         title: "Transaction history",
         icon: history,
-        link: "/budget",
+        link: "/transaction",
     },
     {
         id: 5,
         title: "Profile",
         icon: profile,
-        link: "/budget",
+        link: "/Profile",
     }
 
 ]

@@ -3,7 +3,7 @@ import Sidebar from "../component/Sidebar";
 import MainRoutes from "./MainRoutes";
 import Details from "./Details";
 import { burger } from "../utils/icons";
-import { Button, useDisclosure } from "@chakra-ui/react";
+import { Button, Container, useDisclosure } from "@chakra-ui/react";
 // import MenusItems from "../utils/MenuItems";
 import Budget from "./Budget";
 import React, { useState } from "react";
@@ -15,6 +15,9 @@ import {
     DrawerContent,
     DrawerCloseButton,
   } from '@chakra-ui/react'
+import { Withdraw } from "./Withdraw";
+import { Transaction } from "./Transaction";
+import { ProfilePage } from "./ProfilePage";
 
 const DashBoard = () => {
   const [active, setActive] = useState(1);
@@ -29,11 +32,11 @@ const DashBoard = () => {
       case 2:
         return <Budget />;
       case 3:
-        return <Budget />;
+        return <Withdraw />;
       case 4:
-        return <Budget />;
+        return <Transaction />;
       case 5:
-        return <Budget />;
+        return <ProfilePage />;
       default:
         return <Details />;
     }
@@ -42,6 +45,7 @@ const DashBoard = () => {
   console.log(onClose)
 
   return (
+    <Container maxW={"7xl"}>
     <DIV>
    <div className="drawer-menu" >
    <Button ref={btnRef} bg='black' color={"white"} onClick={onOpen}>
@@ -68,6 +72,7 @@ const DashBoard = () => {
       </div>
       <div id="details">{displayData()}</div>
     </DIV>
+    </Container>
   );
 };
 export default DashBoard;
