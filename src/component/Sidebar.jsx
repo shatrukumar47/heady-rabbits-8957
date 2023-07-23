@@ -6,10 +6,10 @@ import { Button } from "@chakra-ui/react";
 import { deleteLS } from "../LocalStorage/LocalStorageFn";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { LOGOUT_SUCCESS } from "../Redux/actionTypes";
 
-const Sidebar = ({ active, setActive, onclick }) => {
-    const navigate = useNavigate();
+const Sidebar = ({ active, setActive, onClose }) => {
     const dispatch = useDispatch();
     const User = useSelector((store)=> store.authReducer.User)
     console.log(User)
@@ -23,7 +23,7 @@ const Sidebar = ({ active, setActive, onclick }) => {
     <NavStyled>
       <div className="user-con">
         <img
-          src="https://pixlok.com/wp-content/uploads/2021/02/profile-Icon-SVG.jpg"
+          src="https://cdn-icons-png.flaticon.com/512/488/488938.png?w=740&t=st=1690110831~exp=1690111431~hmac=8170b637d79793cc753a647be4ed469a97f246e10c1cfd81363806365c7f5bb9"
           alt=""
         />
         <div className="text">
@@ -36,8 +36,11 @@ const Sidebar = ({ active, setActive, onclick }) => {
           return (
             <li
               key={item.id}
-              onClick={() => setActive(item.id)}
-              // onClick={handleClick(item.id)}
+              onClick={() =>{
+                setActive(item.id)
+                onClose();
+              }
+              } 
               className={active === item.id ? "active" : ""}
             >
               {item.icon}
@@ -84,8 +87,7 @@ const NavStyled = styled.nav`
     align-items: center;
     gap: 1rem;
     img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
       border-radius: 50%;
       object-fit: cover;
       background: #fcf6f9;

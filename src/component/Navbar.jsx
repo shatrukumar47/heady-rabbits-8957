@@ -2,8 +2,16 @@ import {
   Avatar,
   Box,
   Button,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
   HStack,
   Image,
+  Input,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -15,8 +23,9 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { burger } from "../utils/icons";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import DashBoard from "../pages/DashBoard";
 
-const Navbar = () => {
+const Navbar = ({handlerB}) => {
   const [scroll, setScroll] = useState(false);
   const loginDisclosure = useDisclosure();
   const signupDisclosure = useDisclosure();
@@ -37,7 +46,7 @@ const Navbar = () => {
   const handleDashboardBtn = ()=>{
     navigate("/dashboard")
   }
-
+  
 
   return (
     <Box
@@ -51,14 +60,14 @@ const Navbar = () => {
         paddingRight={{ base: "10px", md: "10px", lg: "60px" }}
       >
         <HStack spacing={"5px"}>
-          {/* <HamburgerIcon color={"white"} fontSize={"25px"} marginLeft={"10px"} display={{base:"block", md:"block", lg:"none"}} onClick={()=>{}} /> */}
+          {/* <HamburgerIcon  color={"white"} fontSize={"25px"} marginLeft={"10px"} display={{base:"block", md:"block", lg:"none"}}  /> */}
           <Image
             boxSize="80px"
             objectFit={"cover"}
             src={logo}
             alt="spendwise"
-            onClick={()=> navigate("/")}
             cursor={"pointer"}
+            marginLeft={{base:"25px", md:"25px", lg:"0px"}}
           />
           <Text
             fontSize={"md"}
