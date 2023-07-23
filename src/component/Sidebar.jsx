@@ -4,15 +4,13 @@ import { Menus } from "../utils/MenuItems";
 import { signOut } from "../utils/icons";
 import { Button } from "@chakra-ui/react";
 import { deleteLS } from "../LocalStorage/LocalStorageFn";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import { LOGOUT_SUCCESS } from "../Redux/actionTypes";
 
 const Sidebar = ({ active, setActive, onClose }) => {
     const dispatch = useDispatch();
     const User = useSelector((store)=> store.authReducer.User)
-    console.log(User)
+
     //Handle Logout
     const handleLogout = ()=>{
         deleteLS("auth");
@@ -27,8 +25,8 @@ const Sidebar = ({ active, setActive, onClose }) => {
           alt=""
         />
         <div className="text">
-          <h2>{User.name}</h2>
-          <p>{User.username}</p>
+          <h2>{User?.name}</h2>
+          <p>{User?.username}</p>
         </div>
       </div>
       <ul className="menu-items">
@@ -71,8 +69,6 @@ const NavStyled = styled.nav`
   padding: 2rem 1.5rem;
   width: 100%;
   height: 100%;
-  /* margin-left: 10px; */
-  /* background: rgba(252, 246, 249, 0.78); */
   border: 3px solid #ffffff;
   backdrop-filter: blur(4.5px);
   border-radius: 32px;
