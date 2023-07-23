@@ -42,9 +42,36 @@ const DashBoard = () => {
     }
   };
 
-  console.log(onClose)
+
 
   return (
+    <Container maxW={"8xl"}>
+      <DIV>
+    <div className="drawer-menu" >
+      <Button ref={btnRef} bg='black' color={"white"} onClick={onOpen}>
+              {burger}</Button>
+            <Drawer
+              isOpen={isOpen}
+              placement='left'
+              onClose={onClose}
+              finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Menus</DrawerHeader>
+      
+                <DrawerBody>
+                <Sidebar onclick={onClose} active={active} setActive={setActive} />
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
+      </div>
+        <div id="side-bar">
+          <Sidebar active={active} setActive={setActive} />
+        </div>
+        <div id="details">{displayData()}</div>
+      </DIV>
     <Container maxW={"7xl"}>
     <DIV>
    <div className="drawer-menu" >
@@ -91,10 +118,10 @@ const DIV = styled.div`
 
    #side-bar {
     width: 25%;
-text-align: left; 
-background-color: #F2F2FC;
-border-radius: 32px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    text-align: left; 
+    background-color: #F2F2FC;
+    border-radius: 32px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   }
   #details {
@@ -103,7 +130,7 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
      background-color: #F2F2FC;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   } 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 992px) {
     display:flex;
     flex-direction: column;
     text-align: center;
