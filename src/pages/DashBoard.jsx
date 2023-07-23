@@ -7,8 +7,8 @@ import Budget from "./Budget";
 import React, { useState } from "react";
 import {
     Drawer,
-    DrawerBody,
-    DrawerFooter,   DrawerHeader,
+    DrawerBody,  
+    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
