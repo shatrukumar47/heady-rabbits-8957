@@ -45,7 +45,7 @@ const DashBoard = () => {
 
 
   return (
-    <Container maxW={"8xl"}>
+    <>    <Container maxW={"8xl"}>
       <DIV>
     <div className="drawer-menu" >
       <Button ref={btnRef} bg='black' color={"white"} onClick={onOpen}>
@@ -72,6 +72,7 @@ const DashBoard = () => {
         </div>
         <div id="details">{displayData()}</div>
       </DIV>
+      </Container>
     <Container maxW={"7xl"}>
     <DIV>
    <div className="drawer-menu" >
@@ -100,6 +101,8 @@ const DashBoard = () => {
       <div id="details">{displayData()}</div>
     </DIV>
     </Container>
+    </>
+
   );
 };
 export default DashBoard;
