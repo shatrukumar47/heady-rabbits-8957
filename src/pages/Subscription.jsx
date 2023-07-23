@@ -2,6 +2,10 @@ import { MinusIcon } from "@chakra-ui/icons";
 import { Container, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DatePicker from 'react-datepicker'
+import netflix from "../images/netflix.png";
+import amazon from "../images/amazon.png"
+import hotster from "../images/hotstar.png"
+import  tata from "../images/tata-sky.png"
 
 import styled from "styled-components";
 
@@ -37,24 +41,24 @@ const Subscription=()=>{
     }
    
     return(<>
-      {/* <button onClick={setshow(true)}>Click to Subscribe</button> */}
-    
+                {/* <button className='button'><div>{<MinusIcon className='icon' color={"red"}/>} Subscribe</div></button>
+               <div style={{display:"grid",gridTemplateColumns:"repeat(2,250px)",gap:"20px"}}>
+                <img src={netflix} style={{background:"whitesmoke",width:"250px"}} alt="image**" />
+                <img src={amazon} style={{background:"whitesmoke",width:"250px"}} alt="" />
+                <img src={hotster} style={{background:"whitesmoke",width:"250px"}} alt="" />
+                <img src={tata} style={{background:"whitesmoke",width:"250px"}} alt="" />
+                </div>  */}
+
          <div style={{marginTop:"20px",marginLeft:"20px" , backgroundColor:"#F2F2FC"}}>
             <Container maxW={"5xl"}>
              <Heading as={"h3"} textAlign={'center'} size={"lg"}>Subscriptions</Heading>
        
         <FormStyled onSubmit={handleSubmit}>
-            {/* {error && <p className='error'>{error}</p>} */}
+         
            
             <div className="input-control">
                 <label htmlFor="">Subscriptions:</label> <br/>
-                {/* <input 
-                    type="text" 
-                    value={title}
-                    name={'title'} 
-                    placeholder="Salary Title"
-                    onChange={handleInput('title')}
-                /> */}
+               
                 <select name="subscription" value={subscription} onChange={handleInput('subscription')}>
                     <option value="Select">Select </option>
                     <option value="netflix" onClick={(e)=>setInputState({...inputState,amount:129})}>Netflix</option>
@@ -65,12 +69,7 @@ const Subscription=()=>{
             </div>
             <div className="input-control">
             <label htmlFor="">Amount:</label> <br/>
-                {/* <input value={inputState.amount}  
-                    type="text" 
-                    name={'amount'} 
-                    placeholder={'Amount'}
-                    onChange={handleInput('amount')} 
-                /> */}
+               
                 <select name="amount" value={amount} onChange={handleInput('amount')}>
                     <option value="Select">Select Plan </option>
                     <option value="129">129 /month</option>
@@ -99,15 +98,13 @@ const Subscription=()=>{
                 <textarea name="description" value={description} placeholder='Add A Reference' id="description" rows="2" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-{/*            
-                <Button border={"1px solid blue"} leftIcon={<FcPlus/>} color={'var(--chakra-colors-blue-500)'} variant={"outline"}
-                size={"lg"}    bRad={'30px'}>Add Budget</Button> */}
+
                 <button className='button'><div>{<MinusIcon className='icon' color={"red"}/>} Subscribe</div></button>
             </div>
         </FormStyled>
         </Container>
         </div>
-      
+     
     </>)
 } 
 
