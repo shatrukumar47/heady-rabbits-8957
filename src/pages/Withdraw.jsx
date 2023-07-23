@@ -241,7 +241,7 @@ const FormStyled = styled.form`
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 @media screen and (max-width: 900px) {
-    width: 90%;
+    width: 100%;
      .button{
         width: 80%;
     }

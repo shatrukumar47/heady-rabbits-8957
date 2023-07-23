@@ -53,6 +53,7 @@ const DashBoard = () => {
   };
 
   return (
+    <>
     <Container maxW={"8xl"}>
       <DIV>
         <div className="drawer-menu">
@@ -91,7 +92,8 @@ const DashBoard = () => {
         </div>
         <div id="details">{displayData()}</div>
       </DIV>
-    </Container>
+      </Container>
+    </>
   );
 };
 
@@ -148,4 +150,8 @@ const DIV = styled.div`
       z-index: 1000;
     }
   }
-`;
+.drawer-menu{
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+}}`
