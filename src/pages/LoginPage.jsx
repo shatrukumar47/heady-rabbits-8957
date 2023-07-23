@@ -57,8 +57,6 @@ const LoginPage = ({isOpen, onClose}) => {
       }
       if(email && password){
         dispatch(loginAction(user)).then((res)=>{
-          console.log(res)
-
           if(res.data.length === 0){
             return  toast({
               title: `Invalid email and password !`,

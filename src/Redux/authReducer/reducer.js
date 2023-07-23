@@ -1,5 +1,5 @@
 import { sample } from "lodash";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "../actionTypes";
+import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_SUCCESS } from "../actionTypes";
 import { getLS, setLS } from "../../LocalStorage/LocalStorageFn";
 
 
@@ -26,6 +26,9 @@ export const reducer = (state=initialState, {type, payload})=>{
         }
         case LOGIN_FAILURE:{
             return {...state, isLoading: false, isError: true, errorMessage: payload}
+        }
+        case LOGOUT_SUCCESS:{
+            return {...state, isLoading: false, isAuth: false, User:"", isError: false, errorMessage: ""}
         }
         default:{
             return state;

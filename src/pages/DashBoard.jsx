@@ -1,16 +1,14 @@
 import styled from "@emotion/styled";
 import Sidebar from "../component/Sidebar";
-import MainRoutes from "./MainRoutes";
 import Details from "./Details";
 import { burger } from "../utils/icons";
 import { Button, Container, useDisclosure } from "@chakra-ui/react";
-// import MenusItems from "../utils/MenuItems";
 import Budget from "./Budget";
 import React, { useState } from "react";
 import {
     Drawer,
-    DrawerBody,
-    DrawerFooter,   DrawerHeader,
+    DrawerBody,  
+    DrawerHeader,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
@@ -47,7 +45,7 @@ const DashBoard = () => {
   return (
     <>    <Container maxW={"8xl"}>
       <DIV>
-    <div className="drawer-menu" >
+      <div className="drawer-menu" >
       <Button ref={btnRef} bg='black' color={"white"} onClick={onOpen}>
               {burger}</Button>
             <Drawer
@@ -102,9 +100,10 @@ const DashBoard = () => {
     </DIV>
     </Container>
     </>
-
   );
 };
+
+
 export default DashBoard;
 
 const DIV = styled.div`
