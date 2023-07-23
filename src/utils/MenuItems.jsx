@@ -20,12 +20,18 @@ export const Menus=[
     },
     {
         id: 4,
+        title: "Subscription",
+        icon: history,
+        link: "/subscription",
+    },
+    {
+        id: 5,
         title: "Transaction history",
         icon: history,
         link: "/transaction",
     },
     {
-        id: 5,
+        id: 6,
         title: "Profile",
         icon: profile,
         link: "/Profile",
