@@ -133,7 +133,7 @@ const DIV = styled.div`
       display: none;
     }
     #details {
-      width: 95%;
+      width: 99%;
       margin: 0px;
       margin: auto;
     }
