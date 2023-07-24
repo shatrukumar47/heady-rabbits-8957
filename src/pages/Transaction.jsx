@@ -19,6 +19,8 @@ console.log(budget,"by akash")
     <>
       <Container maxW={"5xl"} paddingTop={"5px"} gap={"2px"} display={"flex"} flexDirection={isSmallerThan900 ? "column" : "row"} justifyContent={"space-evenly"}>
         <Box >
+      <Container maxW={"8xl"} p={{base:"10px", md:"20px", lg:"20px"}} gap={"10px"} display={"flex"} flexDirection={isSmallerThan900 ? "column" : "row"} justifyContent={"space-evenly"}>
+        <Box>
           <TableContainer>
             <Heading as={"h4"} size={"md"} color={"green"}>Credited Transaction</Heading>
             <Table variant='striped' colorScheme='blue' textAlign={"center"}>
