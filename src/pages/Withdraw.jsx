@@ -35,12 +35,14 @@ export const Withdraw = () => {
       style={{
         marginTop: "20px",
         marginLeft: "20px",
-        backgroundColor: "#F2F2FC",
+        backgroundColor: "#28303F",
+        width: "90%",
+        margin: "auto",
       }}
     >
       <Container maxW={"5xl"}>
         <DIV>
-          <Heading as={"h3"} textAlign={"center"} size={"lg"}>
+          <Heading as={"h3"} textAlign={"center"} size={"lg"} margin={"10px"}>
             Withdraw
           </Heading>
           <FormStyled onSubmit={handleSubmit}>
@@ -65,20 +67,11 @@ export const Withdraw = () => {
               />
             </div>
             <div className="input-control">
-              <label htmlFor="">Amount:</label>
-              <input
-                value={amount}
-                type="text"
-                name={"amount"}
-                placeholder={"Salary Amount"}
-                onChange={handleInput("amount")}
-              />
-            </div>
-            <div className="input-control">
               <label htmlFor="">Date:</label>
               <div className="date-pick">
-                <DatePicker
+                <input
                   id="date"
+                  type="date"
                   placeholderText="Enter A Date"
                   selected={date}
                   dateFormat="dd/MM/yyyy"
@@ -138,24 +131,25 @@ export const Withdraw = () => {
 };
 
 const DIV = styled.div`
-  background-color: #f2f2fc;
+  background-color: #28303f;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  padding: 10px;
 `;
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  gap: 1rem;
+  padding: 30px 50px;
+  border-radius: 30px;
+  box-shadow: rgb(56, 138, 201) 0px 1px 2px 0px,
+    rgb(126, 176, 214) 0px 2px 6px 2px;
   width: 90%;
   margin: auto;
   text-align: center;
-  background-color: white;
+  background-color: #eeeeee;
+  color: black;
   margin-top: 5px;
   margin-bottom: 15px;
   input,
@@ -176,7 +170,6 @@ const FormStyled = styled.form`
     }
   }
   .input-control {
-    /* border: 1px solid red; */
     margin: auto;
     width: 100%;
     text-align: left;
@@ -200,43 +193,7 @@ const FormStyled = styled.form`
       }
     }
   }
-  .input-control > .date-pick {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-      rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    margin: auto;
-    background-color: white;
-    margin-top: 5px;
-    margin-bottom: 15px;
-
-    input,
-    textarea,
-    select {
-      font-family: inherit;
-      font-size: inherit;
-      outline: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      border: 1px solid black;
-      background: white;
-      resize: none;
-      box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-      color: rgba(34, 34, 96, 0.9);
-      &::placeholder {
-        color: rgba(34, 34, 96, 0.4);
-      }
-    }
-    .input-control {
-      text-align: left;
-      input {
-        width: 100%;
-      }
-    }
+  
     textarea {
       display: flex;
       justify-content: flex-start;
@@ -245,21 +202,10 @@ const FormStyled = styled.form`
     .selects {
       display: flex;
       justify-content: flex-start;
-
-      select {
-        color: rgba(34, 34, 96, 0.4);
-        width: 48%;
-        &:focus,
-        &:active {
-          color: rgba(34, 34, 96, 1);
-        }
-      }
     }
     .date-pick {
       display: flex;
       justify-content: flex-start;
-      /* margin-left:30px;  */
-      /* border: 1px solid blue; */
       width: 90%;
     }
 
@@ -267,23 +213,8 @@ const FormStyled = styled.form`
       display: inline-block;
       padding: 12px 24px;
       width: 30%;
-      border: 1px solid #4f4f4f;
+      border: 1px solid #e64158;
       border-radius: 50px;
-      transition: all 0.2s ease-in;
-      position: relative;
-      overflow: hidden;
-      font-size: 19px;
-      color: black;
-      z-index: 1;
-    }
-    .button div {
-    }
-    .button {
-      display: inline-block;
-      padding: 12px 24px;
-      width: 60%;
-      border: 1px solid #4f4f4f;
-      border-radius: 30px;
       transition: all 0.2s ease-in;
       position: relative;
       overflow: hidden;
@@ -306,21 +237,6 @@ const FormStyled = styled.form`
       width: 140%;
       height: 180%;
       background-color: rgba(0, 0, 0, 0.05);
-      border-radius: 50%;
-      display: block;
-      transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-      z-index: -1;
-    }
-
-    .button:after {
-      content: "";
-      position: absolute;
-      left: 55%;
-      transform: translateX(-50%) scaleY(1) scaleX(1.45);
-      top: 180%;
-      width: 160%;
-      height: 190%;
-      background-color: #39bda7;
       border-radius: 50%;
       display: block;
       transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
@@ -402,5 +318,4 @@ const FormStyled = styled.form`
         }
       }
     }
-  }
 `;

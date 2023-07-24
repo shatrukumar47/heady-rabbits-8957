@@ -55,7 +55,7 @@ const Budget = () => {
 
   return (
     <DIV>
-      <Heading as="h3" textAlign="center" mt={2} size="lg" marginTop={"20px"}>
+      <Heading as="h3" textAlign="center" mt={2} size="lg" marginTop={"20px"} color={"#E64158"}>
         Add Budget
       </Heading>
 
@@ -142,27 +142,28 @@ const Budget = () => {
 };
 
 const DIV = styled.div`
-  background-color: #f2f2fc;
-  /* margin-top:30px; */
-  width: 100%;
-  /* margin-left:20px; */
-  /* border: 1px solid red; */
+  background-color: #28303F;
+  width: 90%;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  border-radius: 30px;
+  padding-bottom: 20px;
 `;
 const FormStyled = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  gap: 1rem;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: rgb(56, 138, 201) 0px 1px 2px 0px,
+    rgb(126, 176, 214) 0px 2px 6px 2px;
   width: 90%;
   margin: auto;
-  text-align: center;
-  background-color: white;
+  background-color: #EEEEEE;
+  color: black;
+  font-weight: 500;
   margin-top: 5px;
   margin-bottom: 15px;
   input,
@@ -216,13 +217,13 @@ const FormStyled = styled.form`
     display: inline-block;
     padding: 12px 24px;
     width: 30%;
-    border: 1px solid #4f4f4f;
+    border: 1px solid #E64158;
     border-radius: 50px;
     transition: all 0.2s ease-in;
     position: relative;
     overflow: hidden;
     font-size: 19px;
-    color: black;
+    color: #E64158;
     z-index: 1;
   }
   .button div {
