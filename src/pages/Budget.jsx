@@ -86,8 +86,9 @@ const Budget = () => {
           <div className="date-pick">
             <DatePicker
               id="date"
+              type="date"
               placeholderText="Enter A Date"
-              selected={date}
+              select={date}
               dateFormat="dd/MM/yyyy"
               onChange={(date) => {
                 setInputState({ ...inputState, date: date });

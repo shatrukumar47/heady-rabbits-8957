@@ -21,8 +21,7 @@ export const addBudget = (newbudget, user) => (dispatch) => {
   // Step 3: Concatenate new budget objects with the existing budget array
   const updatedBudgets = [...user.financialinfo.budget, ...newbudget];
 
-  axios
-    .post(`https://masaiprojects-mock-server-api.onrender.com/users/${user.id}`, {
+  axios.patch(`https://masaiprojects-mock-server-api.onrender.com/users/${user.id}`, {
       financialinfo: {
         ...user.financialinfo,
         budget: updatedBudgets,

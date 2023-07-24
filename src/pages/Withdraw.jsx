@@ -37,8 +37,9 @@ export const Withdraw=()=>{
     }
 
     return (
-        <div style={{marginTop:"20px",marginLeft:"20px" , backgroundColor:"#F2F2FC"}}>
-            <Container maxW={"5xl"}>
+        <Container maxW={"5xl"}>
+        <DIV>
+            
              <Heading as={"h3"} textAlign={'center'} size={"lg"}>Withdraw</Heading>
        
         <FormStyled onSubmit={handleSubmit}>
@@ -50,7 +51,7 @@ export const Withdraw=()=>{
                     type="text" 
                     value={title}
                     name={'title'} 
-                    placeholder="Salary Title"
+                    placeholder=" Title"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -59,7 +60,7 @@ export const Withdraw=()=>{
                 <input value={amount}  
                     type="text" 
                     name={'amount'} 
-                    placeholder={'Salary Amount'}
+                    placeholder={' Amount'}
                     onChange={handleInput('amount')} 
                 />
             </div>
@@ -106,11 +107,22 @@ export const Withdraw=()=>{
                 <button className='button'><div>{<MinusIcon className='icon' color={"red"}/>} Withdraw</div></button>
             </div>
         </FormStyled>
-        </Container>
-        </div>
+       
+        </DIV>
+         </Container>
     )
 }
 
+const DIV=styled.div`
+background-color: #F2F2FC;
+/* margin-top:30px; */
+width: 100%;
+/* margin-left:20px; */
+/* border: 1px solid red; */
+display: flex;
+flex-direction: column;
+gap: 20px;
+`
 const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
@@ -118,8 +130,9 @@ const FormStyled = styled.form`
     padding: 50px;
   border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    width: 50%;
+    width: 90%;
     margin: auto;
+    text-align: center;
     background-color: white;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -139,47 +152,50 @@ const FormStyled = styled.form`
         }
     }
     .input-control{
-        text-align:left;
+        /* border: 1px solid red; */
+        margin: auto;
+        width: 100%;
+        text-align: left;
         input{
-            width: 100%;
+            width: 90%;
+            display: block;
         }
     }
     textarea{
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
+        width: 90%;
+        display: block;
     }
     .selects{
-        display: flex;
-        justify-content: flex-start;
-        
         select{
             color: rgba(34, 34, 96, 0.4);
-            width: 48%;
+            width: 90%;
+            display: block;
             &:focus, &:active{
                 color: rgba(34, 34, 96, 1);
             }
         }
     }
-.date-pick{
+.input-control > .date-pick{
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
+    /* margin-left:30px;  */
+    /* border: 1px solid blue; */
     width: 90%;
 }
     .submit-btn{
-/*        
-            box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+      
+            /* box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
             &:hover{
                 background: var(--color-green) !important;
-            } */
+            }  */
         
     }
     .button {
  display: inline-block;
  padding: 12px 24px;
- width: 60%;
+ width: 30%;
  border: 1px solid #4f4f4f;
- border-radius: 30px;
+ border-radius: 50px;
  transition: all 0.2s ease-in;
  position: relative;
  overflow: hidden;
@@ -201,12 +217,13 @@ const FormStyled = styled.form`
  top: 100%;
  width: 140%;
  height: 180%;
- background-color:#ba0722;
+ background-color: rgba(0, 0, 0, 0.05);
  border-radius: 50%;
  display: block;
  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
  z-index: -1;
 }
+
 .button:after {
  content: "";
  position: absolute;
@@ -215,15 +232,13 @@ const FormStyled = styled.form`
  top: 180%;
  width: 160%;
  height: 190%;
- background-color: #ba0722;
+ background-color: #39bda7;
  border-radius: 50%;
  display: block;
  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
  z-index: -1;
 }
-.button:hover .icon {
-    color: white; 
-  }
+
 .button:hover {
  color: #ffffff;
  border: 1px solid #39bda7;
@@ -231,17 +246,17 @@ const FormStyled = styled.form`
 
 .button:hover:before {
  top: -35%;
- background-color: #ba0722;
+ background-color: #39bda7;
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 
 .button:hover:after {
  top: -45%;
- background-color: #ba0722;
+ background-color: #39bda7;
  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
 @media screen and (max-width: 900px) {
-    width: 100%;
+    width: 90%;
      .button{
         width: 80%;
     }
