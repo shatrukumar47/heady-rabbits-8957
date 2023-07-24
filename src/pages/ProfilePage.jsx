@@ -53,6 +53,7 @@ export const ProfilePage = () => {
       margin={"10px auto"}
       width={{base:"100%", md:"90%", lg:"80%"}}
       borderRadius={"20px"}
+      bgColor={"#28303F"}
     >
       <HStack justifyContent={"space-between"} alignItems={{base:"flex-start", md:"center", lg:"center"}}>
         <Stack direction={{base:"column", md:"row", lg:"row"}} spacing={"20px"} alignItems={{base:"flex-start", md:"center", lg:"center"}}>
@@ -76,7 +77,7 @@ export const ProfilePage = () => {
             </Text>
             </VStack>
         </Stack>
-        <IoCreateOutline style={{fontSize:"40px", color:"#070E39", marginRight:"20px"}} onClick={handleEdit} />
+        <IoCreateOutline style={{fontSize:"40px", color:"#E64158", marginRight:"20px"}} onClick={handleEdit} />
       </HStack>
       <Divider style={{ margin: "15px" }} />
       <FormControl marginBottom={"5px"}>
