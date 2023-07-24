@@ -98,7 +98,7 @@ const DIV = styled.div`
     .amount-con {
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      width: 100%;
+      width: 95%;
     }
   }
 `;
