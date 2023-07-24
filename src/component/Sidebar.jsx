@@ -8,14 +8,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { LOGOUT_SUCCESS } from "../Redux/actionTypes";
 
 const Sidebar = ({ active, setActive, onClose }) => {
-    const dispatch = useDispatch();
-    const User = useSelector((store)=> store.authReducer.User)
+  const dispatch = useDispatch();
+  const User = useSelector((store) => store.authReducer.User);
 
-    //Handle Logout
-    const handleLogout = ()=>{
-        deleteLS("auth");
-        dispatch({type:LOGOUT_SUCCESS})
-    }
+  //Handle Logout
+  const handleLogout = () => {
+    deleteLS("auth");
+    dispatch({ type: LOGOUT_SUCCESS });
+  };
 
   return (
     <NavStyled>
@@ -34,11 +34,10 @@ const Sidebar = ({ active, setActive, onClose }) => {
           return (
             <li
               key={item.id}
-              onClick={() =>{
-                setActive(item.id)
+              onClick={() => {
+                setActive(item.id);
                 onClose();
-              }
-              } 
+              }}
               className={active === item.id ? "active" : ""}
             >
               {item.icon}
@@ -49,7 +48,7 @@ const Sidebar = ({ active, setActive, onClose }) => {
       </ul>
       <div className="bottom-nav">
         <Button
-          colorScheme="blue"
+          color="white"
           variant="outline"
           leftIcon={signOut}
           transition={"border-radius 0.3s ease-in-out"}
@@ -68,8 +67,8 @@ const Sidebar = ({ active, setActive, onClose }) => {
 const NavStyled = styled.nav`
   padding: 2rem 1.5rem;
   width: 100%;
-  height: 100%;
-  border: 3px solid #ffffff;
+  /* height: 100%; */
+  /* border: 3px solid #ffffff; */
   backdrop-filter: blur(4.5px);
   border-radius: 32px;
   display: flex;
@@ -92,10 +91,12 @@ const NavStyled = styled.nav`
       box-shadow: 0px 1px 17px rgba(0, 0, 0, 0.06);
     }
     h2 {
-      color: rgba(34, 34, 96, 1);
+      /* color: rgba(34, 34, 96, 1); */
+      color: white;
     }
     p {
-      color: rgba(34, 34, 96, 0.6);
+      /* color: rgba(34, 34, 96, 0.6); */
+      color: white;
     }
   }
 
@@ -111,11 +112,13 @@ const NavStyled = styled.nav`
       font-weight: 500;
       cursor: pointer;
       transition: all 0.4s ease-in-out;
-      color: rgba(34, 34, 96, 0.6);
+      /* color: rgba(34, 34, 96, 0.6); */
+      color: white;
       padding-left: 1rem;
       position: relative;
       i {
         color: rgba(34, 34, 96, 0.6);
+        color: white;
         font-size: 1.4rem;
         transition: all 0.4s ease-in-out;
       }

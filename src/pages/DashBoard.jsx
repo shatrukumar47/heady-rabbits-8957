@@ -50,44 +50,44 @@ const DashBoard = () => {
 
   return (
     <>
-    <Container maxW={"8xl"}>
-      <DIV>
-        <div className="drawer-menu">
-          <Button
-            id="burger-button"
-            ref={btnRef}
-            bg="black"
-            color={"white"}
-            onClick={onOpen}
-          >
-            {burger}
-          </Button>
-          <Drawer
-            isOpen={isOpen}
-            placement="left"
-            onClose={onClose}
-            finalFocusRef={btnRef}
-          >
-            <DrawerOverlay />
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader>Menu</DrawerHeader>
+      <Container maxW={"8xl"}>
+        <DIV>
+          <div className="drawer-menu">
+            <Button
+              id="burger-button"
+              ref={btnRef}
+              bg="black"
+              color={"white"}
+              onClick={onOpen}
+            >
+              {burger}
+            </Button>
+            <Drawer
+              isOpen={isOpen}
+              placement="left"
+              onClose={onClose}
+              finalFocusRef={btnRef}
+            >
+              <DrawerOverlay />
+              <DrawerContent bg={"#E64158"}>
+                <DrawerCloseButton />
+                <DrawerHeader color={"white"}>Menu</DrawerHeader>
 
-              <DrawerBody>
-                <Sidebar
-                  onClose={onClose}
-                  active={active}
-                  setActive={setActive}
-                />
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
-        </div>
-        <div id="side-bar">
-          <Sidebar active={active} setActive={setActive} onClose={onClose} />
-        </div>
-        <div id="details">{displayData()}</div>
-      </DIV>
+                <DrawerBody>
+                  <Sidebar
+                    onClose={onClose}
+                    active={active}
+                    setActive={setActive}
+                  />
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
+          </div>
+          <div id="side-bar">
+            <Sidebar active={active} setActive={setActive} onClose={onClose} />
+          </div>
+          <div id="details">{displayData()}</div>
+        </DIV>
       </Container>
     </>
   );
@@ -110,7 +110,7 @@ const DIV = styled.div`
   #side-bar {
     width: 25%;
     text-align: left;
-    background-color: #f2f2fc;
+    background-color: #E64158;
     border-radius: 32px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -121,6 +121,9 @@ const DIV = styled.div`
     background-color: #f2f2fc;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
       rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+  #burger-button {
+    display: none;
   }
   @media screen and (max-width: 992px) {
     display: flex;
@@ -138,16 +141,19 @@ const DIV = styled.div`
       display: block;
       text-align: left;
       padding-left: 10px;
+      color: black;
     }
     #burger-button {
+      display: block;
       position: fixed;
       top: 20px;
       left: 5px;
       z-index: 1000;
     }
   }
-.drawer-menu{
+  .drawer-menu {
     display: block;
     text-align: left;
     padding-left: 10px;
-}}`
+  }
+`;

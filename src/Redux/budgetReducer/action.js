@@ -22,7 +22,7 @@ export const addBudget = (newbudget, user) => (dispatch) => {
   const updatedBudgets = [...user.financialinfo.budget, ...newbudget];
 
   axios
-    .post(`https://masaiprojects-mock-server-api.onrender.com/users/${user.id}`, {
+    .patch(`https://masaiprojects-mock-server-api.onrender.com/users/${user.id}`, {
       financialinfo: {
         ...user.financialinfo,
         budget: updatedBudgets,

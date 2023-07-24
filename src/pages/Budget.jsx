@@ -55,12 +55,11 @@ const Budget = () => {
 
   return (
     <DIV>
-      <Heading as="h3" textAlign="center" mt={2} size="lg">
+      <Heading as="h3" textAlign="center" mt={2} size="lg" marginTop={"20px"}>
         Add Budget
       </Heading>
 
       <FormStyled onSubmit={handleSubmit}>
-        {/* {error && <p className='error'>{error}</p>} */}
         <div className="input-control">
           <label>Title:</label>
           <input
@@ -183,7 +182,6 @@ const FormStyled = styled.form`
     }
   }
   .input-control {
-    /* border: 1px solid red; */
     margin: auto;
     width: 100%;
     text-align: left;
@@ -210,11 +208,9 @@ const FormStyled = styled.form`
   .input-control > .date-pick {
     display: flex;
     justify-content: flex-start;
-    /* margin-left:30px;  */
-    /* border: 1px solid blue; */
     width: 90%;
   }
-  
+
   .button {
     display: inline-block;
     padding: 12px 24px;
