@@ -2,7 +2,7 @@
 A collaborative project to build a fintech mobile application.
 
 ## Deployment Link
-[netlify]()
+[netlify](https://spendwisenew.netlify.app/)
 ###
 **spendwise** is a fintech mobile application that aims to help manage user's finance by Alerting users when they are close to their spending limit and also giving helpful tips to help improve their spending habits
 ##
